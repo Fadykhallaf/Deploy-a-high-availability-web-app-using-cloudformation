@@ -47,19 +47,19 @@ Resources:
         Type: AWS::AutoScaling::LaunchConfiguration
         Properties:
             IamInstanceProfile: !Ref UdagramInstanceProfile 
-            ImageId: ami-00ddb0e5626798373.
+            ImageId: ami-00ddb0e5626798373
             InstanceType: t2.medium
             SecurityGroups:
                 - Ref: WebServerSecGroup
             UserData:
-                Fn::Base64:
+                Fn::Base64: !Sub | 
                     #!/bin/bash
                     apt-get update -y
                     apt-get install unzip awscli -y
                     apt-get install apache2 -y
                     systemctl start apache2.service
                     cd /var/www/html
-                    aws s3 cp s3://udacity-demo-1/udacity.zip .
+                    aws s3 cp s3://udagram-udacity-p2-bk/udacity.zip .
                     unzip -o udacity.zip
             BlockDeviceMappings:
                 - DeviceName: "/dev/sdk"
