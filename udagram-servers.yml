@@ -155,7 +155,7 @@ Resources:
 Outputs:
     LoadBalancerDNSName:
         Description: Load balancer DNS name
-        Value: !Join ["http://", [!GetAtt WebAppLB.DNSName]]
+        Value: !Join ["", ["http://", !GetAtt WebAppLB.DNSName]]
         Export:
             Name: !Sub ${EnvironmentName}-WEB-LB  
 
