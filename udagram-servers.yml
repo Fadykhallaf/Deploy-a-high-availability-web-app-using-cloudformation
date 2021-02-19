@@ -74,8 +74,8 @@ Resources:
                     !Sub "${EnvironmentName}-PRI-NETS"  
             LaunchConfigurationName: 
                 Ref: WebAppLaunchConfig
-            MaxSize: '4'
-            MinSize: '8'
+            MaxSize: '8'
+            MinSize: '4'
             TargetGroupARNs: 
                 - Ref: WebAppTargetGroup
     WebAppLB:
