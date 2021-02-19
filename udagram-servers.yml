@@ -55,12 +55,13 @@ Resources:
                 Fn::Base64: !Sub | 
                     #!/bin/bash
                     apt-get update -y
-                    apt-get install unzip awscli -y
+                    # apt-get install unzip awscli -y
                     apt-get install apache2 -y
                     systemctl start apache2.service
                     cd /var/www/html
-                    aws s3 cp s3://udagram-udacity-p2-bk/udacity.zip .
-                    unzip -o udacity.zip
+                    # aws s3 cp s3://udagram-udacity-p2-bk/udacity.zip .
+                    # unzip -o udacity.zip
+                    echo "it works! Udagram, Udacity" > index.html
             BlockDeviceMappings:
                 - DeviceName: "/dev/sdk"
                   Ebs:
