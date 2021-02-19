@@ -71,13 +71,13 @@ Resources:
         Properties:
             VPCZoneIdentifier:
                 - Fn::ImportValue:
-                    !Sub "${EnvironmentName}-PRIV-NETS"  
+                    !Sub "${EnvironmentName}-PRI-NETS"  
             LaunchConfigurationName: 
                 Ref: WebAppLaunchConfig
             MaxSize: '4'
             MinSize: '8'
             TargetGroupARNs: 
-                -Ref: WebAppTargetGroup
+                - Ref: WebAppTargetGroup
     WebAppLB:
         Type: AWS::ElasticLoadBalancingV2::LoadBalancer
         Properties:
@@ -127,22 +127,22 @@ Resources:
     UdacityS3ReadOnlyEC2:
         Type: AWS::IAM::Role
         Properties:
-            Path: /
             AssumeRolePolicyDocument: 
                 Version: "2012-10-17"
                 Statement:
-                    - Effect: "Allow"
+                    - Effect: Allow
                       Principal:
                           Service: 
-                              - ec2.amazon.aws.com
+                              - ec2.amazonaws.com
                       Action:
                           - 'sts:AssumeRole'
+            Path: /              
             Policies:
-                - PolicyName: "root"
+                - PolicyName: root
                   PolicyDocument:
                       Version: "2012-10-17"
                       Statement:
-                          - Effect: "Allow"
+                          - Effect: Allow
                             Action: "*"
                             Resource: "*"
     UdagramInstanceProfile:
