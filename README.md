@@ -21,4 +21,4 @@ You have a 3 scripts here:-\
 `create.sh` to create a cloudformation stack in a scripting aws instead of writing a long AWS command, use it with the network-components.yml file.\
 `create-servers-stack.sh` the difference between this script and the above one, this script has `--capabilities CAPABILITY_IAM` option, which is required when you are creating a stack that includes IAM role resources, so use it with the udagram-server.yml file.\
 
-`create.sh` to update your cloudformation stack.
+`update.sh` to update your cloudformation stack.
