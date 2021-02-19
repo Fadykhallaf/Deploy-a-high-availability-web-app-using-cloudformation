@@ -2,8 +2,9 @@ Description:
     Fady Khallaf / deploy all the required resources for Udagram project
 
 Parameters:
-    Description: An environment name which will be prefixed the resources names.
-    Type: String
+    EnvironmentName:
+        Description: An environment name which will be prefixed the resources names.
+        Type: String
 
 Resources:
     LBSecGroup:
